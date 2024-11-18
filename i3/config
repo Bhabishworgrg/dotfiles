@@ -1,0 +1,143 @@
+# i3 config file (v4)
+
+# set <Super> as Mod key
+set $mod Mod4
+
+# set wallpaper
+exec --no-startup-id feh --randomize --bg-fill ~/.config/wallpaper/*
+
+# remove title bar
+font pango:FreeMono 0
+
+# remove borders
+for_window [class=".*"] border none
+
+# set gaps
+gaps inner 27
+gaps outer 10
+
+# assign workspaces to the apps
+assign [class="Godot"] 2
+assign [class="firefox"] 3
+assign [class="discord"] 4
+
+# run apps on startup
+exec --no-startup-id polybar
+exec --no-startup-id dunst
+exec --no-startup-id kitty
+exec --no-startup-id firefox
+exec --no-startup-id discord
+
+# lock the screen on timeout
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# run picom for transparency and blur
+exec --no-startup-id picom
+
+# toggle picom on and off
+bindsym $mod+p exec --no-startup-id picom
+bindsym $mod+Shift+p exec --no-startup-id pkill picom
+
+# modify volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# modify screen brightness
+bindsym XF86MonBrightnessDown exec  --no-startup-id brightnessctl set 10%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+
+# start apps
+bindsym $mod+Return exec kitty
+bindsym $mod+b exec firefox
+bindsym $mod+n exec discord
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu
+bindsym $mod+d exec --no-startup-id dmenu_run -fn monospace-19
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# split in horizontal, vertical orientation
+bindsym $mod+c split h
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, toggle split)
+bindsym $mod+s layout stacking 
+bindsym $mod+e layout toggle split
+
+# focus all containers
+bindsym $mod+a focus parent
+
+# focus only one container
+bindsym $mod+w focus child
+
+# switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# resize the focused window
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym j resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3
+bindsym $mod+Shift+r restart
+
+# lock the system
+bindsym $mod+Shift+x exec sudo systemctl suspend
+
+# take screenshot
+mode "screenshot" {
+	set $path "$HOME/Media/Screenshots/"
+    set $name "$(date +"%Y%m%d_%H%M%S").png"
+    bindsym --release r exec --no-startup-id scrot -s $path$name ; mode "default"
+    bindsym w exec --no-startup-id scrot -u $path$name ; mode "default"
+    bindsym Return exec --no-startup-id scrot $path$name ; mode "default"
+    bindsym f exec firefox $path"$(ls -t $path | head -n 1)" ; mode "default"
+    bindsym Escape mode "default"
+}
+bindsym Print mode "screenshot"
