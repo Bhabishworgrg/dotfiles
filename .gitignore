@@ -13,6 +13,8 @@
 !X11/
 !dunst/
 !grub-theme/
+!bash/
+!wallpaper/
 
 !BetterDiscord/**
 !godot/**
@@ -25,3 +27,5 @@
 !X11/**
 !dunst/**
 !grub-theme/**
+!bash/**
+!wallpaper/**
