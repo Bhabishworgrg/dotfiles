@@ -13,12 +13,14 @@ alias build-win='dotnet build -r win-x64 --sc'
 alias git-lucas='git config user.name "LucasBeastBeast" && git config user.email "nikal.gurung@gmail.com"'
 alias git-bhabhi='git config --global user.name "Bhabishworgrg" && git config user.email "bhabishworgrg@gmail.com"'
 alias live-preview='browser-sync start --server --files "*.html" "*.css" "*.js"'
+alias activate='source ~/myenv/bin/activate'
 
 . "$HOME/.cargo/env"
 
 source ~/.local/bin/bashmarks.sh
 
 export EDITOR=nvim
+
 export PATH=$PATH:$HOME/EhhLang
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/EhhLang/linux
 
