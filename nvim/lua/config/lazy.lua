@@ -63,7 +63,7 @@ lsp.lua_ls.setup({
 		Lua = {
 			runtime = { version = 'LuaJIT' },
 			diagnostics = {
-				globals = { 'vim' }
+				globals = { 'vim' },
 			},
 			workspace = { library = vim.env.VIMRUNTIME }
 		}
@@ -84,6 +84,13 @@ lsp.pylsp.setup({
 		}
 	}
 })
+
+-- Find external libraries in clangd
+lsp.clangd.setup {
+	capabilities = lsp_capabilities,
+    cmd = { 'clangd', '--compile-commands-dir=build', '--header-insertion=never' },
+    root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
+}
 
 -- Setup required functions
 local fn = {}
