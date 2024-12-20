@@ -14,6 +14,7 @@ alias git-lucas='git config user.name "LucasBeastBeast" && git config user.email
 alias git-bhabhi='git config --global user.name "Bhabishworgrg" && git config user.email "bhabishworgrg@gmail.com"'
 alias live-preview='browser-sync start --server --files "*.html" "*.css" "*.js"'
 alias activate='source ~/myenv/bin/activate'
+alias init-opencv='$HOME/Projects/init-opencv/script.sh'
 
 . "$HOME/.cargo/env"
 
