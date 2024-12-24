@@ -86,7 +86,7 @@ editors/3d/navigation/show_viewport_rotation_gizmo = true
 editors/3d/navigation/show_viewport_navigation_gizmo = false
 text_editor/behavior/files/auto_reload_and_parse_scripts_on_save = true
 text_editor/behavior/files/open_dominant_script_on_scene_change = false
-text_editor/external/use_external_editor = true
+text_editor/external/use_external_editor = false
 text_editor/external/exec_path = "/usr/bin/kitty"
 text_editor/script_list/script_temperature_enabled = true
 text_editor/script_list/script_temperature_history_size = 15
@@ -166,6 +166,7 @@ metadata/script_setup_templates_dictionary = {
 "CanvasLayer": "0NodeDefault",
 "CharacterBody2D": "0CharacterBody2DBasic Movement",
 "CollisionPolygon2D": "0NodeDefault",
+"ColorRect": "0NodeDefault",
 "Node": "0NodeDefault",
 "Node2D": "0NodeDefault",
 "StaticBody2D": "0NodeDefault"

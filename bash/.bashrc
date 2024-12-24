@@ -28,4 +28,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/EhhLang/linux
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+
 eval "$(starship init bash)"
