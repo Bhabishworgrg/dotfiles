@@ -2,15 +2,16 @@
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
-	local out = vim.fn.system({ 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath })
-
 	if vim.v.shell_error ~= 0 then
 		vim.api.nvim_echo({
 			{ 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-			{ out, 'WarningMsg' },
+			{
+				vim.fn.system({	'git', 'clone', '--filter=blob:none', '--branch=stable', 'https://github.com/folke/lazy.nvim.git', lazypath }),
+				'WarningMsg'
+			},
 			{ '\nPress any key to exit...' },
 		}, true, {})
+
 		vim.fn.getchar()
 		os.exit(1)
 	end
@@ -18,13 +19,11 @@ end
 
 vim.opt.rtp:prepend('~/.local/share/nvim/lazy/lazy.nvim')
 
-
 -- Setup lazy.nvim
 require('lazy').setup({
-	spec = { import = 'plugins' },
+	spec = { import = 'plugins'	},
 	checker = { enabled = true },
 })
-
 
 local lsp = require('lspconfig')
 -- Setup LSP
@@ -36,7 +35,7 @@ end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'bashls', 'clangd', 'cssls', 'emmet_ls', 'grammarly', 'html', 'jdtls', 'lua_ls', 'omnisharp', 'pylsp', 'ts_ls' },	-- servers for autocompletion
+	ensure_installed = { 'bashls', 'clangd', 'cssls', 'emmet_ls', 'html', 'jdtls', 'jedi_language_server', 'ltex', 'lua_ls', 'omnisharp', 'ts_ls' },	-- servers for autocompletion
 	handlers = { default_setup },
 })
 
@@ -45,8 +44,10 @@ cmp.setup({
 		{ name = 'nvim_lsp' }
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<CR>'] = cmp.mapping.confirm({}), 	-- <Enter> key to confirm completion item
-		['<C-Space>'] = cmp.mapping.complete(),	-- <Ctrl> + <Space> to trigger completion menu
+		['<CR>'] = cmp.mapping.confirm({}),				-- <Enter> key to confirm completion item
+		['<C-Space>'] = cmp.mapping.complete(),			-- <Ctrl> + <Space> to trigger completion menu
+		['<A-Tab>'] = cmp.mapping.select_next_item(),	-- <Alt> + <Tab> to select next completion item
+		['<A-S-Tab>'] = cmp.mapping.select_prev_item(),	-- <Alt> + <Shift> + <Tab> to select previous completion item
 	}),
 	snippet = {
 		expand = function(args)
@@ -54,7 +55,6 @@ cmp.setup({
 		end,
 	},
 })
-
 
 -- Ignore 'vim' as an error in lua
 lsp.lua_ls.setup({
@@ -70,27 +70,34 @@ lsp.lua_ls.setup({
 	}
 })
 
--- Ignore 'line too long' warning in pylsp
-lsp.pylsp.setup({
-	capabilities = lsp_capabilities,
-	settings = {
-		pylsp = {
-			plugins = {
-				pycodestyle = {
-					ignore = { 'E501' },
-					maxLineLength = 120,
-				}
-			}
-		}
-	}
-})
-
 -- Find external libraries in clangd
 lsp.clangd.setup {
 	capabilities = lsp_capabilities,
     cmd = { 'clangd', '--compile-commands-dir=build', '--header-insertion=never' },
     root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
 }
+
+-- Null-LS for and Mypy
+local null_ls = require('null-ls')
+null_ls.setup({
+    sources = {
+        null_ls.builtins.diagnostics.mypy,
+    },
+    on_attach = function(client, bufnr)
+        if client.supports_method("textDocument/formatting") then
+            vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
+        end
+    end,
+})
+
+-- Autoformat on Save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.py",
+    callback = function()
+        vim.lsp.buf.format()
+    end,
+})
+
 
 -- Setup required functions
 local fn = {}

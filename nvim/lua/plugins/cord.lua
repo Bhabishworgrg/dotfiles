@@ -1,6 +1,6 @@
 return {
-  'vyfor/cord.nvim',
-  build = './build || .\\build',
-  event = 'VeryLazy',
-  opts = {},
+	'vyfor/cord.nvim',
+	branch = 'client-server',
+	build = ':Cord fetch',
+	opts = {},
 }
