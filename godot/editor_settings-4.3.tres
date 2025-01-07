@@ -1,4 +1,10 @@
-[gd_resource type="EditorSettings" format=3]
+[gd_resource type="EditorSettings" load_steps=2 format=3]
+
+[sub_resource type="InputEventKey" id="InputEventKey_cdmtq"]
+command_or_control_autoremap = true
+alt_pressed = true
+keycode = 75
+unicode = 75
 
 [resource]
 interface/editor/dock_tab_style = 2
@@ -151,6 +157,10 @@ editors/3d_gizmos/gizmo_colors/joint_body_a = Color(0.6, 0.8, 1, 1)
 editors/3d_gizmos/gizmo_colors/joint_body_b = Color(0.6, 0.9, 1, 1)
 editors/3d_gizmos/gizmo_colors/fog_volume = Color(0.5, 0.7, 1, 1)
 text_editor/help/sort_functions_alphabetically = true
+shortcuts = [{
+"name": "editor/clear_output",
+"shortcuts": [SubResource("InputEventKey_cdmtq")]
+}]
 metadata/script_setup_templates_dictionary = {
 "Area2D": "0NodeDefault",
 "AudioStreamPlayer": "0NodeDefault",
@@ -160,6 +170,7 @@ metadata/script_setup_templates_dictionary = {
 "ColorRect": "0NodeDefault",
 "Node": "0NodeDefault",
 "Node2D": "0NodeDefault",
+"Sprite2D": "0NodeDefault",
 "StaticBody2D": "0NodeDefault"
 }
 metadata/export_template_download_directory = "/home/lucasbeastbeast/.cache/godot"
