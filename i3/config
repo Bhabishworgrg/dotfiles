@@ -3,6 +3,9 @@
 # set <Super> as Mod key
 set $mod Mod4
 
+# disable touchscreen
+exec --no-startup-id xinput disable "WDHT1F01:00 2575:0911"
+
 # set wallpaper
 exec --no-startup-id feh --randomize --bg-fill ~/.config/wallpaper/*
 
