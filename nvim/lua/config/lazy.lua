@@ -35,7 +35,7 @@ end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'bashls', 'clangd', 'cssls', 'emmet_ls', 'html', 'jdtls', 'jedi_language_server', 'ltex', 'lua_ls', 'omnisharp', 'ts_ls' },	-- servers for autocompletion
+	ensure_installed = { 'bashls', 'clangd', 'cssls', 'emmet_ls', 'html', 'jedi_language_server', 'ltex', 'lua_ls', 'omnisharp', 'ts_ls' },	-- servers for autocompletion
 	handlers = { default_setup },
 })
 
@@ -70,33 +70,12 @@ lsp.lua_ls.setup({
 	}
 })
 
--- Find external libraries in clangd
+-- Find external libraries in clangd (c++)
 lsp.clangd.setup {
 	capabilities = lsp_capabilities,
     cmd = { 'clangd', '--compile-commands-dir=build', '--header-insertion=never' },
     root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
 }
-
--- Null-LS for and Mypy
-local null_ls = require('null-ls')
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.mypy,
-    },
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_buf_set_option(bufnr, "formatexpr", "v:lua.vim.lsp.formatexpr()")
-        end
-    end,
-})
-
--- Autoformat on Save
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.py",
-    callback = function()
-        vim.lsp.buf.format()
-    end,
-})
 
 
 -- Setup required functions
