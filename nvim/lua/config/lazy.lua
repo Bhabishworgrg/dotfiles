@@ -35,7 +35,7 @@ end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'bashls', 'clangd', 'cssls', 'emmet_ls', 'html', 'jedi_language_server', 'ltex', 'lua_ls', 'omnisharp', 'terraformls', 'ts_ls' },	-- servers for autocompletion
+	ensure_installed = { 'bashls', 'clangd', 'cssls', 'emmet_ls', 'html', 'jdtls', 'jedi_language_server', 'ltex', 'lua_ls', 'omnisharp', 'terraformls', 'ts_ls' },	-- servers for autocompletion
 	handlers = { default_setup },
 })
 
