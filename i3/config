@@ -85,6 +85,10 @@ bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
 bindsym $mod+w floating toggle 
 
+# invert the screen
+bindsym $mod+i exec --no-startup-id xrandr --output eDP --rotate inverted
+bindsym $mod+Shift+i exec --no-startup-id xrandr --output eDP --rotate normal 
+
 # switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
