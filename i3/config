@@ -54,6 +54,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym $mod+Return exec kitty
 bindsym $mod+b exec firefox
 bindsym $mod+n exec discord
+bindsym $mod+m exec microsoft-edge-stable --app="https://web.skype.com/"
 
 # kill focused window
 bindsym $mod+Shift+q kill
