@@ -42,9 +42,9 @@ bindsym $mod+p exec --no-startup-id picom
 bindsym $mod+Shift+p exec --no-startup-id pkill picom
 
 # modify volume
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id exec ~/.config/i3/volume_manager.sh up
+bindsym XF86AudioLowerVolume exec --no-startup-id exec ~/.config/i3/volume_manager.sh down
+bindsym XF86AudioMute exec --no-startup-id exec ~/.config/i3/volume_manager.sh mute
 
 # modify screen brightness
 bindsym XF86MonBrightnessDown exec  --no-startup-id brightnessctl set 10%-
