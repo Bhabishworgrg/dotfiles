@@ -32,7 +32,7 @@
     foreground = "#ffffff"
 
 	# set transparency
-	transparency = 20
+	transparency = 27
 
 
 	### Progress bar ###
@@ -214,8 +214,10 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-	frame_color = "#736c6c"
-    timeout = 10
+	background = "#ffffff"
+    foreground = "#000000"
+	frame_color = "#363232"
+    timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
