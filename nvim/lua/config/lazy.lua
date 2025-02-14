@@ -56,6 +56,13 @@ cmp.setup({
 	},
 })
 
+lsp.matlab_ls.setup({
+	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/matlab-language-server"), "--stdio" },
+	root_dir = function(fname)
+		return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
+	end,
+})
+
 -- Ignore 'vim' as an error in lua
 lsp.lua_ls.setup({
 	capabilities = lsp_capabilities,
