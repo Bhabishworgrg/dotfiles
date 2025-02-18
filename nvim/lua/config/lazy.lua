@@ -56,11 +56,24 @@ cmp.setup({
 	},
 })
 
+-- Fix matlab's root directory
 lsp.matlab_ls.setup({
 	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/matlab-language-server"), "--stdio" },
 	root_dir = function(fname)
 		return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
 	end,
+})
+
+-- Fix kotlin's root directory
+lsp.kotlin_language_server.setup({
+  cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/kotlin-language-server") },
+  root_dir = function(fname)
+    return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
+  end,
+  init_options = {
+    -- Set a proper storage path as a string.
+    storagePath = vim.fn.expand("~/.cache/kotlin-language-server"),
+  },
 })
 
 -- Ignore 'vim' as an error in lua
