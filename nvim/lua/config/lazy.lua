@@ -56,6 +56,12 @@ cmp.setup({
 	},
 })
 
+-- Setup gdscript
+lsp['gdscript'].setup({
+    	name = 'godot',
+    	cmd = vim.lsp.rpc.connect('127.0.0.1', '6005'),
+    })
+
 -- Fix matlab's root directory
 lsp.matlab_ls.setup({
 	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/matlab-language-server"), "--stdio" },
