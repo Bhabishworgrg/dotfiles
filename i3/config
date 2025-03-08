@@ -16,8 +16,8 @@ font pango:FreeMono 0
 for_window [class=".*"] border none
 
 # set gaps
-gaps inner 27
-gaps outer 10
+bindsym $mod+g gaps outer all set 10; gaps inner all set 27
+bindsym $mod+Shift+g gaps outer all set 0; gaps inner all set 0
 
 # assign workspaces to the apps
 assign [class="Godot"] 2
