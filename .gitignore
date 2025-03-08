@@ -2,7 +2,6 @@
 !.gitignore
 !starship.toml
 
-!BetterDiscord/
 !godot/
 !i3/
 !kitty/
@@ -16,7 +15,6 @@
 !bash/
 !wallpaper/
 
-!BetterDiscord/**
 !godot/**
 !i3/**
 !kitty/**
