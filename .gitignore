@@ -28,5 +28,6 @@
 !bash/**
 !wallpaper/**
 
+bash/.bash_history
 pokemon_logo.txt
 godot/recent_dirs
