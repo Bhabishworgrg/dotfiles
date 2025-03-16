@@ -1,6 +1,6 @@
 [gd_resource type="EditorSettings" load_steps=2 format=3]
 
-[sub_resource type="InputEventKey" id="InputEventKey_cdmtq"]
+[sub_resource type="InputEventKey" id="InputEventKey_pm11u"]
 command_or_control_autoremap = true
 alt_pressed = true
 keycode = 75
@@ -159,7 +159,7 @@ editors/3d_gizmos/gizmo_colors/fog_volume = Color(0.5, 0.7, 1, 1)
 text_editor/help/sort_functions_alphabetically = true
 shortcuts = [{
 "name": "editor/clear_output",
-"shortcuts": [SubResource("InputEventKey_cdmtq")]
+"shortcuts": [SubResource("InputEventKey_pm11u")]
 }]
 metadata/script_setup_templates_dictionary = {
 "Area2D": "0NodeDefault",
