@@ -14,6 +14,7 @@
 !grub-theme/
 !bash/
 !wallpaper/
+!ly/
 
 !godot/**
 !i3/**
@@ -27,6 +28,7 @@
 !grub-theme/**
 !bash/**
 !wallpaper/**
+!ly/**
 
 bash/.bash_history
 pokemon_logo.txt
