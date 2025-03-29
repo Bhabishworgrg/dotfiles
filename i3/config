@@ -21,6 +21,8 @@ bindsym $mod+Shift+g gaps outer all set 0; gaps inner all set 0
 
 # assign workspaces to the apps
 assign [class="Godot"] 2
+assign [class="jetbrains-studio"] 2
+assign [class="dolphin-emu"] 2
 assign [class="firefox"] 3
 assign [class="discord"] 4
 
@@ -44,10 +46,15 @@ bindsym $mod+Shift+p exec --no-startup-id pkill picom
 bindsym XF86AudioRaiseVolume exec --no-startup-id exec ~/.config/i3/volume_manager.sh up
 bindsym XF86AudioLowerVolume exec --no-startup-id exec ~/.config/i3/volume_manager.sh down
 bindsym XF86AudioMute exec --no-startup-id exec ~/.config/i3/volume_manager.sh mute
+bindsym $mod+F3 exec --no-startup-id exec ~/.config/i3/volume_manager.sh up
+bindsym $mod+F2 exec --no-startup-id exec ~/.config/i3/volume_manager.sh down
+bindsym $mod+F1 exec --no-startup-id exec ~/.config/i3/volume_manager.sh mute
 
 # modify screen brightness
 bindsym XF86MonBrightnessDown exec  --no-startup-id brightnessctl set 10%-
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
+bindsym $mod+F4 exec  --no-startup-id brightnessctl set 10%-
+bindsym $mod+F5 exec --no-startup-id brightnessctl set +10%
 
 # start apps
 bindsym $mod+Return exec kitty
