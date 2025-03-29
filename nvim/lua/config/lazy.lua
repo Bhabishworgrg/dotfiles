@@ -61,9 +61,9 @@ vim.cmd("Copilot disable")
 
 -- Setup gdscript
 lsp['gdscript'].setup({
-    	name = 'godot',
-    	cmd = vim.lsp.rpc.connect('127.0.0.1', '6005'),
-    })
+	name = 'godot',
+	cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
+})
 
 -- Fix matlab's root directory
 lsp.matlab_ls.setup({
