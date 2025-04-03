@@ -1,6 +1,7 @@
 *
 !.gitignore
 !starship.toml
+!Trolltech.conf
 
 !godot/
 !i3/
@@ -15,6 +16,8 @@
 !bash/
 !wallpaper/
 !ly/
+!icons/
+!gtk-3.0/
 
 !godot/**
 !i3/**
@@ -29,6 +32,8 @@
 !bash/**
 !wallpaper/**
 !ly/**
+!icons/**
+!gtk-3.0/**
 
 bash/.bash_history
 pokemon_logo.txt
