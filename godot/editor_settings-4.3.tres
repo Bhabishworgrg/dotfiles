@@ -1,6 +1,6 @@
 [gd_resource type="EditorSettings" load_steps=2 format=3]
 
-[sub_resource type="InputEventKey" id="InputEventKey_pm11u"]
+[sub_resource type="InputEventKey" id="InputEventKey_8i8kn"]
 command_or_control_autoremap = true
 alt_pressed = true
 keycode = 75
@@ -18,6 +18,7 @@ interface/theme/icon_saturation = 2.0
 interface/theme/corner_radius = 0
 interface/theme/base_spacing = 0
 interface/theme/additional_spacing = 4
+filesystem/import/blender/blender_path = "/usr/bin/blender"
 text_editor/theme/highlighting/symbol_color = Color(0.67, 0.79, 1, 1)
 text_editor/theme/highlighting/keyword_color = Color(1, 0.44, 0.52, 1)
 text_editor/theme/highlighting/control_flow_keyword_color = Color(1, 0.55, 0.8, 1)
@@ -157,15 +158,22 @@ editors/3d_gizmos/gizmo_colors/joint_body_a = Color(0.6, 0.8, 1, 1)
 editors/3d_gizmos/gizmo_colors/joint_body_b = Color(0.6, 0.9, 1, 1)
 editors/3d_gizmos/gizmo_colors/fog_volume = Color(0.5, 0.7, 1, 1)
 text_editor/help/sort_functions_alphabetically = true
+gut/output_font_size = 11.0
+gut/output_font_name = "CourierPrime"
+gut/hide_result_tree = false
+gut/hide_output_text = false
+gut/hide_settings = false
+gut/use_colors = true
 shortcuts = [{
 "name": "editor/clear_output",
-"shortcuts": [SubResource("InputEventKey_pm11u")]
+"shortcuts": [SubResource("InputEventKey_8i8kn")]
 }]
 metadata/script_setup_templates_dictionary = {
 "Area2D": "0NodeDefault",
 "AudioStreamPlayer": "0NodeDefault",
 "CanvasLayer": "0NodeDefault",
 "CharacterBody2D": "0CharacterBody2DBasic Movement",
+"CharacterBody3D": "0CharacterBody3DBasic Movement",
 "CollisionPolygon2D": "0NodeDefault",
 "ColorRect": "0NodeDefault",
 "Node": "0NodeDefault",
