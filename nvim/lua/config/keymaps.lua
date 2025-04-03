@@ -8,6 +8,7 @@ set('n', '<leader>e', cmd.Ex)	-- open file explorer
 -- Telescope
 set('n', '<leader><leader>', function() fn.telescope('find_files') end)	-- search files
 set('n', '<leader>f', function() fn.telescope('live_grep') end)			-- search inside of files
+set('n', '<leader>c', function() vim.lsp.buf.code_action() end)
 
 -- Fugitive
 set('n', '<leader>g', cmd.Git)	-- show git status

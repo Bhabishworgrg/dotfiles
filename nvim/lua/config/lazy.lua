@@ -106,6 +106,21 @@ lsp.clangd.setup {
     root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
 }
 
+-- Setup telescope layout and lsp code actions
+local telescope = require('telescope')
+
+telescope.setup({
+	defaults = {
+		layout_strategy = 'vertical'
+	},
+	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown{}
+		}
+	}
+})
+
+telescope.load_extension('ui-select')
 
 -- Setup required functions
 local fn = {}
