@@ -1,0 +1,5 @@
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+
+* {
+    font: "ProFont IIx Nerd Font Mono 18";
+}

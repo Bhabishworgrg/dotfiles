@@ -66,7 +66,7 @@ bindsym $mod+m exec chromium
 bindsym $mod+Shift+q kill
 
 # start dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run -fn monospace-19
+bindsym $mod+d exec --no-startup-id rofi -show drun -icon-theme "Papirus" -show-icons 
 
 # change focus
 bindsym $mod+h focus left
