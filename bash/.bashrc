@@ -22,9 +22,6 @@ source ~/.local/bin/bashmarks.sh
 
 export EDITOR=nvim
 
-export PATH=$PATH:$HOME/EhhLang
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/EhhLang/linux
-
 export DOTNET_ROOT=$HOME/dotnet
 export PATH=$PATH:$HOME/dotnet
 
