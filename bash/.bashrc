@@ -15,15 +15,13 @@ alias git-college='git config user.name "Bhabishwor" && git config user.email "g
 alias live-preview='browser-sync start --server --files "*.html" "*.css" "*.js"'
 alias init-opencv='$HOME/Projects/init-opencv/script.sh'
 alias fastfetch='pokemon-colorscripts --no-title -r > ~/.config/fastfetch/pokemon_logo.txt && fastfetch'
+alias matlab='LD_PRELOAD=/usr/lib/libgcc_s.so.1 matlab'
 
 . "$HOME/.cargo/env"
 
 source ~/.local/bin/bashmarks.sh
 
 export EDITOR=nvim
-
-export DOTNET_ROOT=$HOME/dotnet
-export PATH=$PATH:$HOME/dotnet
 
 export PATH=$PATH:$HOME/odoo
 
