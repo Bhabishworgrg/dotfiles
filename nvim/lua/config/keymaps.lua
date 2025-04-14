@@ -40,5 +40,5 @@ set('n', '<leader>j', cmd.GitGutterNextHunk)	-- next hunk
 set('n', '<leader>k', cmd.GitGutterPrevHunk)	-- previous hunk
 
 -- Netrw Tabs
-set('n', '<Tab>', cmd.tabNext)			-- next tab
+set('n', '<Tab>', cmd.tabnext)			-- next tab
 set('n', '<S-Tab>', cmd.tabprevious) 	-- previous tab
