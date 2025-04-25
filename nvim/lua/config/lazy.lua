@@ -57,7 +57,7 @@ cmp.setup({
 })
 
 -- Disable copilot by default
-vim.cmd("Copilot disable")
+--vim.cmd("Copilot disable")
 
 -- Setup gdscript
 lsp['gdscript'].setup({
