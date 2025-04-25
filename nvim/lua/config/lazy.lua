@@ -111,7 +111,10 @@ local telescope = require('telescope')
 
 telescope.setup({
 	defaults = {
-		layout_strategy = 'vertical'
+		layout_strategy = 'vertical',
+		layout_config = {
+			preview_cutoff = 0,
+		},
 	},
 	extensions = {
 		["ui-select"] = {
