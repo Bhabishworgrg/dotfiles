@@ -56,6 +56,12 @@ cmp.setup({
 	},
 })
 
+-- Setup web-devicons
+local devicons = require('nvim-web-devicons')
+devicons.setup {
+	variant = 'dark';
+}
+
 -- Disable copilot by default
 --vim.cmd("Copilot disable")
 
