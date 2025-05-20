@@ -42,3 +42,9 @@ set('n', '<leader>k', cmd.GitGutterPrevHunk)	-- previous hunk
 -- Netrw Tabs
 set('n', '<Tab>', cmd.tabnext)			-- next tab
 set('n', '<S-Tab>', cmd.tabprevious) 	-- previous tab
+
+-- Window Navigation
+set('n', '<C-h>', '<C-w>h')	-- move to left window
+set('n', '<C-j>', '<C-w>j')	-- move to bottom window
+set('n', '<C-k>', '<C-w>k')	-- move to top window
+set('n', '<C-l>', '<C-w>l')	-- move to right window
