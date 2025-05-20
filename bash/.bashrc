@@ -12,10 +12,9 @@ alias grep='grep --color=auto'
 alias git-lucas='git config user.name "LucasBeastBeast" && git config user.email "nikal.gurung@gmail.com"'
 alias git-bhabhi='git config user.name "Bhabishworgrg" && git config user.email "bhabishworgrg@gmail.com"'
 alias git-college='git config user.name "Bhabishwor" && git config user.email "gbhabishwor22@tbc.edu.np"'
-alias live-preview='browser-sync start --server --files "*.html" "*.css" "*.js"'
-alias init-opencv='$HOME/Projects/init-opencv/script.sh'
 alias fastfetch='pokemon-colorscripts --no-title -r > ~/.config/fastfetch/pokemon_logo.txt && fastfetch'
 alias matlab='LD_PRELOAD=/usr/lib/libgcc_s.so.1 matlab'
+alias session='kitty --session $PWD/session.kitty --detach'
 
 . "$HOME/.cargo/env"
 
