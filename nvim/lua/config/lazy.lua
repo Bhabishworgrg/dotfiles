@@ -63,7 +63,7 @@ devicons.setup {
 }
 
 -- Disable copilot by default
---vim.cmd("Copilot disable")
+vim.cmd('Copilot disable')
 
 -- Setup gdscript
 lsp['gdscript'].setup({
@@ -73,7 +73,7 @@ lsp['gdscript'].setup({
 
 -- Fix matlab's root directory
 lsp.matlab_ls.setup({
-	cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/matlab-language-server"), "--stdio" },
+	cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/matlab-language-server'), '--stdio' },
 	root_dir = function(fname)
 		return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
 	end,
@@ -81,14 +81,14 @@ lsp.matlab_ls.setup({
 
 -- Fix kotlin's root directory
 lsp.kotlin_language_server.setup({
-  cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/kotlin-language-server") },
-  root_dir = function(fname)
-    return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
-  end,
-  init_options = {
-    -- Set a proper storage path as a string.
-    storagePath = vim.fn.expand("~/.cache/kotlin-language-server"),
-  },
+	cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/kotlin-language-server') },
+	root_dir = function(fname)
+		return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
+	end,
+	init_options = {
+		-- Set a proper storage path as a string.
+		storagePath = vim.fn.expand('~/.cache/kotlin-language-server'),
+	},
 })
 
 -- Ignore 'vim' as an error in lua
@@ -108,8 +108,8 @@ lsp.lua_ls.setup({
 -- Find external libraries in clangd (c++)
 lsp.clangd.setup {
 	capabilities = lsp_capabilities,
-    cmd = { 'clangd', '--compile-commands-dir=build', '--header-insertion=never' },
-    root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
+	cmd = { 'clangd', '--compile-commands-dir=build', '--header-insertion=never' },
+	root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
 }
 
 -- Setup telescope layout and lsp code actions
@@ -123,13 +123,21 @@ telescope.setup({
 		},
 	},
 	extensions = {
-		["ui-select"] = {
-			require("telescope.themes").get_dropdown{}
+		['ui-select'] = {
+			require('telescope.themes').get_dropdown{}
 		}
 	}
 })
 
 telescope.load_extension('ui-select')
+
+-- Setup spring-boot.nvim
+require('spring_boot').init_lsp_commands()
+lsp.jdtls.setup {
+	init_options = {
+		bundles = require('spring_boot').java_extensions(),
+	},
+}
 
 -- Setup required functions
 local fn = {}
