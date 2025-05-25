@@ -132,12 +132,18 @@ telescope.setup({
 telescope.load_extension('ui-select')
 
 -- Setup spring-boot.nvim
-require('spring_boot').init_lsp_commands()
-lsp.jdtls.setup {
-	init_options = {
-		bundles = require('spring_boot').java_extensions(),
-	},
+require('jdtls').start_or_attach({
+    cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/jdtls') },
+    root_dir = vim.fs.dirname(vim.fs.find(
+		{ 'gradlew', '.git', 'mvnw'},
+		{ upward = true }
+	)[1]),
+})
+
+local jdtls_config = {
+  bundles = {}
 }
+vim.list_extend(jdtls_config.bundles, require('spring_boot').java_extensions())
 
 -- Setup required functions
 local fn = {}

@@ -1,6 +1,6 @@
 return {
 	'JavaHello/spring-boot.nvim',
-	ft = {'java', 'yaml', 'jproperties'},
+	ft = 'java',
 	dependencies = {
 		'mfussenegger/nvim-jdtls',
 	},
