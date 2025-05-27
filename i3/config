@@ -21,20 +21,21 @@ bindsym $mod+Shift+g gaps outer all set 0; gaps inner all set 0
 
 # assign workspaces to the apps
 assign [class="Godot"] 2
-assign [class="jetbrains-studio"] 2
-assign [class="dolphin-emu"] 2
-assign [class="firefox"] 3
+assign [class="qutebrowser"] 3
 assign [class="discord"] 4
+for_window [title="Spotify"] move to workspace 5
 
 # run apps on startup
 exec --no-startup-id polybar
 exec --no-startup-id dunst
 exec --no-startup-id kitty
-exec --no-startup-id firefox
 exec --no-startup-id discord
+exec --no-startup-id qutebrowser
+exec --no-startup-id qutebrowser --target window https://open.spotify.com/
 
 # lock the screen on timeout
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --ignore-empty-password --no-unlock-indicator -i ~/.config/i3/win-crash.png
+
 # run picom for transparency and blur
 exec --no-startup-id picom
 
@@ -58,9 +59,9 @@ bindsym $mod+F5 exec --no-startup-id brightnessctl set +10%
 
 # start apps
 bindsym $mod+Return exec kitty
-bindsym $mod+b exec firefox
+bindsym $mod+b exec qutebrowser 
 bindsym $mod+n exec discord
-bindsym $mod+m exec chromium
+bindsym $mod+m exec qutebrowser --target window "https://open.spotify.com/"
 
 # kill focused window
 bindsym $mod+Shift+q kill
