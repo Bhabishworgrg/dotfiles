@@ -23,7 +23,7 @@ bindsym $mod+Shift+g gaps outer all set 0; gaps inner all set 0
 assign [class="Godot"] 2
 assign [class="qutebrowser"] 3
 assign [class="discord"] 4
-for_window [title="Spotify"] move to workspace 5
+for_window [class="qutebrowser" title="Spotify"] move to workspace 5
 
 # run apps on startup
 exec --no-startup-id polybar
