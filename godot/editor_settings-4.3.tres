@@ -1,6 +1,6 @@
 [gd_resource type="EditorSettings" load_steps=2 format=3]
 
-[sub_resource type="InputEventKey" id="InputEventKey_sumad"]
+[sub_resource type="InputEventKey" id="InputEventKey_4rnrf"]
 command_or_control_autoremap = true
 alt_pressed = true
 keycode = 75
@@ -51,6 +51,7 @@ text_editor/theme/highlighting/breakpoint_color = Color(1, 0.47, 0.42, 1)
 text_editor/theme/highlighting/code_folding_color = Color(1, 1, 1, 0.27)
 text_editor/theme/highlighting/search_result_color = Color(1, 1, 1, 0.07)
 editors/tiles_editor/display_grid = false
+editors/tiles_editor/highlight_selected_layer = false
 network/connection/network_mode = 1
 project_manager/default_renderer = "gl_compatibility"
 asset_library/available_urls = {
@@ -168,22 +169,26 @@ gut/hide_settings = false
 gut/use_colors = true
 shortcuts = [{
 "name": "editor/clear_output",
-"shortcuts": [SubResource("InputEventKey_sumad")]
+"shortcuts": [SubResource("InputEventKey_4rnrf")]
 }]
 metadata/script_setup_templates_dictionary = {
 "Area2D": "0NodeDefault",
 "AspectRatioContainer": "0NodeDefault",
 "AudioStreamPlayer": "0NodeDefault",
 "Button": "0NodeDefault",
+"Camera3D": "0NodeDefault",
 "CanvasLayer": "0NodeDefault",
 "CharacterBody2D": "0CharacterBody2DBasic Movement",
 "CharacterBody3D": "0CharacterBody3DBasic Movement",
 "CollisionPolygon2D": "0NodeDefault",
 "ColorRect": "0NodeDefault",
 "Control": "0NodeDefault",
+"HTTPRequest": "0NodeDefault",
 "LineEdit": "0NodeDefault",
 "Node": "0NodeDefault",
 "Node2D": "0NodeDefault",
+"Node3D": "0NodeDefault",
+"RayCast3D": "0NodeDefault",
 "Sprite2D": "0NodeDefault",
 "StaticBody2D": "0NodeDefault",
 "TextureButton": "0NodeDefault",
