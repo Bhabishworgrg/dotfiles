@@ -37,6 +37,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --ignore-
 # run picom for transparency and blur
 exec --no-startup-id picom
 
+# run authentication agent for polkit for windows
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # toggle picom on and off
 bindsym $mod+p exec --no-startup-id picom
 bindsym $mod+Shift+p exec --no-startup-id pkill picom
