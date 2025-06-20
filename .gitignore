@@ -19,6 +19,7 @@
 !icons/
 !gtk-3.0/
 !rofi/
+!firefox/
 
 !godot/**
 !i3/**
@@ -36,6 +37,7 @@
 !icons/**
 !gtk-3.0/**
 !rofi/**
+!firefox/**
 
 bash/.bash_history
 godot/recent_dirs

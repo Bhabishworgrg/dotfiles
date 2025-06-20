@@ -1,0 +1,11 @@
+@import url('components/elements-transparencies.css');
+@import url('components/menu-icons.css');
+@import url('components/tst-tweaks.css');
+@import url('components/variables.css');
+@import url('components/window-control-placeholder.css');
+@import url('components/window-transparencies.css');
+
+#toolbar-menubar {
+  display: none !important;
+  visibility: collapse !important;
+}
