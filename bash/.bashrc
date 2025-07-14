@@ -23,6 +23,7 @@ source ~/.local/bin/bashmarks.sh
 export EDITOR=nvim
 
 export PATH=$PATH:$HOME/odoo
+export PATH="$PATH:/home/lucasbeastbeast/.dotnet/tools"
 
 eval "$(starship init bash)"
 
