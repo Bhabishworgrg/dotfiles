@@ -1,10 +1,4 @@
-[gd_resource type="EditorSettings" load_steps=2 format=3]
-
-[sub_resource type="InputEventKey" id="InputEventKey_4rnrf"]
-command_or_control_autoremap = true
-alt_pressed = true
-keycode = 75
-unicode = 75
+[gd_resource type="EditorSettings" format=3]
 
 [resource]
 interface/editor/dock_tab_style = 2
@@ -19,6 +13,7 @@ interface/theme/icon_saturation = 2.0
 interface/theme/corner_radius = 0
 interface/theme/base_spacing = 0
 interface/theme/additional_spacing = 4
+filesystem/file_dialog/show_hidden_files = true
 filesystem/import/blender/blender_path = "/usr/bin/blender"
 text_editor/theme/highlighting/symbol_color = Color(0.67, 0.79, 1, 1)
 text_editor/theme/highlighting/keyword_color = Color(1, 0.44, 0.52, 1)
@@ -161,16 +156,6 @@ editors/3d_gizmos/gizmo_colors/joint_body_a = Color(0.6, 0.8, 1, 1)
 editors/3d_gizmos/gizmo_colors/joint_body_b = Color(0.6, 0.9, 1, 1)
 editors/3d_gizmos/gizmo_colors/fog_volume = Color(0.5, 0.7, 1, 1)
 text_editor/help/sort_functions_alphabetically = true
-gut/output_font_size = 11.0
-gut/output_font_name = "CourierPrime"
-gut/hide_result_tree = false
-gut/hide_output_text = false
-gut/hide_settings = false
-gut/use_colors = true
-shortcuts = [{
-"name": "editor/clear_output",
-"shortcuts": [SubResource("InputEventKey_4rnrf")]
-}]
 metadata/script_setup_templates_dictionary = {
 "Area2D": "0NodeDefault",
 "AspectRatioContainer": "0NodeDefault",
