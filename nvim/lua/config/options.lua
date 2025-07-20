@@ -10,10 +10,12 @@ vim.o.relativenumber = true
 vim.o.clipboard = 'unnamedplus'
 
 -- Colorscheme
-vim.cmd[[colorscheme unokai]]
+vim.cmd[[colorscheme zaibatsu]]
 
 -- Transparent background
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })		-- main window
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#000000' })	-- LSP definitions
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#000000' })		-- autocomplete menu
 
 -- Netrw
 vim.g.netrw_banner = false
