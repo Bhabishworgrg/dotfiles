@@ -13,9 +13,10 @@ vim.o.clipboard = 'unnamedplus'
 vim.cmd[[colorscheme zaibatsu]]
 
 -- Transparent background
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })		-- main window
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })			-- main window
 vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#000000' })	-- LSP definitions
-vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#000000' })		-- autocomplete menu
+vim.api.nvim_set_hl(0, 'Pmenu', { bg = '#000000' })			-- autocomplete menu
+vim.api.nvim_set_hl(0, 'EndOfBuffer', { bg = 'none' })		-- non-written lines
 
 -- Netrw
 vim.g.netrw_banner = false
