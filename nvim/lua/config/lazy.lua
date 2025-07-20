@@ -36,7 +36,7 @@ end
 require('mason').setup({})
 require('mason-lspconfig').setup({
 	ensure_installed = { 'bashls', 'clangd', 'cssls', 'docker_compose_language_service', 'dockerls', 'emmet_ls', 'html', 'jdtls', 'jedi_language_server', 'kotlin_language_server', 'lua_ls', 'matlab_ls', 'omnisharp', 'terraformls', 'ts_ls' },	-- servers for autocompletion
-	handlers = { default_setup },
+	handlers = { default_setup }
 })
 
 cmp.setup({
@@ -46,7 +46,7 @@ cmp.setup({
 	mapping = cmp.mapping.preset.insert({
 		['<CR>'] = cmp.mapping.confirm({}),				-- <Enter> key to confirm completion item
 		['<C-Space>'] = cmp.mapping.complete(),			-- <Ctrl> + <Space> to trigger completion menu
-		['<Tab>'] = cmp.mapping.select_next_item(),	-- <Tab> to select next completion item
+		['<Tab>'] = cmp.mapping.select_next_item(),		-- <Tab> to select next completion item
 		['<S-Tab>'] = cmp.mapping.select_prev_item(),	-- <Shift> + <Tab> to select previous completion item
 	}),
 	snippet = {
@@ -89,20 +89,6 @@ lsp.kotlin_language_server.setup({
 		-- Set a proper storage path as a string.
 		storagePath = vim.fn.expand('~/.cache/kotlin-language-server'),
 	},
-})
-
--- Ignore 'vim' as an error in lua
-lsp.lua_ls.setup({
-	capabilities = lsp_capabilities,
-	settings = {
-		Lua = {
-			runtime = { version = 'LuaJIT' },
-			diagnostics = {
-				globals = { 'vim' },
-			},
-			workspace = { library = vim.env.VIMRUNTIME }
-		}
-	}
 })
 
 -- Find external libraries in clangd (c++)
