@@ -9,6 +9,7 @@ set('n', '<leader>e', cmd.Ex)	-- open netrw explorer
 set('n', '<leader><leader>', function() fn.telescope('find_files') end)	-- search files
 set('n', '<leader>f', function() fn.telescope('live_grep') end)			-- search inside of files
 set('n', '<leader>c', function() vim.lsp.buf.code_action() end)			-- show code actions
+set('n', '<leader>d', function() vim.diagnostic.open_float() end)		-- show error/warning message
 
 -- Fugitive
 set('n', '<leader>g', cmd.Git)	-- show git status
