@@ -62,9 +62,6 @@ devicons.setup {
 	variant = 'dark';
 }
 
--- Disable copilot by default
-vim.cmd('Copilot disable')
-
 -- Setup gdscript
 lsp['gdscript'].setup({
 	name = 'godot',
