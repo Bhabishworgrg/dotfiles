@@ -15,11 +15,10 @@ alias git-college='git config user.name "Bhabishwor" && git config user.email "g
 alias fastfetch='pokemon-colorscripts --no-title -r > ~/.config/fastfetch/pokemon_logo.txt && fastfetch'
 alias matlab='LD_PRELOAD=/usr/lib/libgcc_s.so.1 matlab'
 alias session='kitty --session ${PWD}/session.kitty --detach && exit'
-alias java8='/usr/lib/jvm/java-8-openjdk/jre/bin/java'
 
 . "$HOME/.cargo/env"
 
-source ~/.local/bin/bashmarks.sh
+. ~/.local/bin/bashmarks.sh
 
 export EDITOR=nvim
 
