@@ -10,7 +10,13 @@ vim.o.relativenumber = true
 vim.o.clipboard = 'unnamedplus'
 
 -- Colorscheme
-vim.cmd[[colorscheme zaibatsu]]
+vim.api.nvim_create_autocmd('ColorScheme', {
+	pattern = 'tokyonight',
+	callback = function()
+		vim.api.nvim_set_hl(0, '@variable', { fg = '#f7768e' }) -- override variable color
+	end,
+})
+vim.cmd[[colorscheme tokyonight]]
 
 -- Transparent background
 vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })			-- main window

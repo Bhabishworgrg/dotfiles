@@ -185,6 +185,13 @@ local jdtls_config = {
 }
 vim.list_extend(jdtls_config.bundles, require('spring_boot').java_extensions())
 
+vim.api.nvim_create_autocmd('ColorScheme', {
+	pattern = 'tokyonight',
+	callback = function()
+		vim.api.nvim_set_hl(0, '@variable', { fg = '#f7768e' })
+	end,
+})
+
 -- Setup required functions
 local fn = {}
 

@@ -1,4 +1,4 @@
-return {
+return {{
 	'nvim-treesitter/nvim-treesitter',
 	build = function()
 		require('nvim-treesitter.install').update({ with_sync = true })()
@@ -13,4 +13,6 @@ return {
 			indent = { enable = true },
 		})
 	end
+},
+		'nvim-treesitter/playground',
 }
