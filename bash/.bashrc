@@ -14,6 +14,7 @@ alias git-bhabhi='git config user.name "Bhabishworgrg" && git config user.email 
 alias git-college='git config user.name "Bhabishwor" && git config user.email "gbhabishwor22@tbc.edu.np"'
 alias fastfetch='pokemon-colorscripts --no-title -r > ~/.config/fastfetch/pokemon_logo.txt && fastfetch'
 alias matlab='LD_PRELOAD=/usr/lib/libgcc_s.so.1 matlab'
+alias ltree='tree -hxACDU'
 alias session='kitty --session ${PWD}/session.kitty --detach && exit'
 
 . "$HOME/.cargo/env"
