@@ -1,23 +1,14 @@
 -- bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
 
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	if vim.v.shell_error ~= 0 then
-		vim.api.nvim_echo({
-			{ 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
-			{
-				vim.fn.system({	'git', 'clone', '--filter=blob:none', '--branch=stable', 'https://github.com/folke/lazy.nvim.git', lazypath }),
-				'WarningMsg'
-			},
-			{ '\nPress any key to exit...' },
-		}, true, {})
-
-		vim.fn.getchar()
-		os.exit(1)
-	end
+if not vim.uv.fs_stat(lazypath) then
+	vim.fn.system({
+		'git', 'clone', '--filter=blob:none', '--branch=stable',
+		'https://github.com/folke/lazy.nvim.git', lazypath,
+	})
 end
 
-vim.opt.rtp:prepend('~/.local/share/nvim/lazy/lazy.nvim')
+vim.opt.rtp:prepend(lazypath)
 
 -- Setup lazy.nvim
 require('lazy').setup({
@@ -25,12 +16,12 @@ require('lazy').setup({
 	checker = { enabled = true },
 })
 
-local lsp = require('lspconfig')
+local lsp = vim.lsp.config
 -- Setup LSP
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local cmp = require('cmp')
 local default_setup = function(server)
-	lsp[server].setup({ capabilities = lsp_capabilities })
+	lsp(server, { capabilities = lsp_capabilities })
 end
 
 require('mason').setup({})
@@ -63,13 +54,13 @@ devicons.setup {
 }
 
 -- Setup gdscript
-lsp.gdscript.setup({
+lsp('gdscript', {
 	name = 'godot',
 	cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
 })
 
 -- Fix matlab's root directory
-lsp.matlab_ls.setup({
+lsp('matlab_ls', {
 	cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/matlab-language-server'), '--stdio' },
 	root_dir = function(fname)
 		return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
@@ -77,7 +68,7 @@ lsp.matlab_ls.setup({
 })
 
 -- Fix kotlin's root directory
-lsp.kotlin_language_server.setup({
+lsp('kotlin_language_server', {
 	cmd = { vim.fn.expand('~/.local/share/nvim/mason/bin/kotlin-language-server') },
 	root_dir = function(fname)
 		return require('lspconfig.util').root_pattern('.git')(fname) or vim.fn.getcwd()
@@ -88,12 +79,7 @@ lsp.kotlin_language_server.setup({
 	},
 })
 
--- Find external libraries in clangd (c++)
-lsp.clangd.setup {
-	capabilities = lsp_capabilities,
-	cmd = { 'clangd', '--compile-commands-dir=build', '--header-insertion=never' },
-	root_dir = require('lspconfig.util').root_pattern('compile_commands.json', '.git')
-}
+vim.lsp.enable({ 'gdscript', 'matlab_ls', 'kotlin_language_server' })
 
 -- Setup telescope layout and lsp code actions
 local telescope = require('telescope')
@@ -179,19 +165,11 @@ telescope.load_extension('ui-select')
 --	},
 --}
 --require('jdtls').start_or_attach(config)
---
+
 --local jdtls_config = {
 --  bundles = {}
 --}
 --vim.list_extend(jdtls_config.bundles, require('spring_boot').java_extensions())
-
--- Customise variable colouring in colourscheme
-vim.api.nvim_create_autocmd('ColorScheme', {
-	pattern = 'tokyonight',
-	callback = function()
-		vim.api.nvim_set_hl(0, '@variable', { fg = '#f7768e' })
-	end,
-})
 
 -- Setup required functions
 local fn = {}
