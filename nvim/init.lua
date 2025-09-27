@@ -1,8 +1,5 @@
--- Map leader keys
+-- Set <space> as leader key
 vim.g.mapleader = ' '
-
--- Disable copilot
-vim.g.copilot_enabled = false
 
 -- Load configuration files
 require('config.lazy')
