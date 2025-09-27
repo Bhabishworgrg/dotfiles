@@ -3,7 +3,8 @@ local cmd = vim.cmd
 local fn = require('config.lazy')
 
 -- Nvim
-set('n', '<leader>e', cmd.Ex)	-- open netrw explorer
+set('n', '<leader>e', cmd.Ex)		-- open netrw explorer
+set('n', '<leader>n', cmd.tabnew)	-- open new tab
 
 -- Telescope
 set('n', '<leader><leader>', function() fn.telescope('find_files') end)	-- search files
