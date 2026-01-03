@@ -26,7 +26,7 @@ end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-	ensure_installed = { 'bashls', 'clangd', 'cssls', 'docker_compose_language_service', 'dockerls', 'emmet_ls', 'html', 'jdtls', 'jedi_language_server', 'kotlin_language_server', 'lua_ls', 'matlab_ls', 'omnisharp', 'rust_analyzer', 'terraformls', 'ts_ls' },	-- servers for autocompletion
+	ensure_installed = { 'basedpyright', 'bashls', 'clangd', 'cssls', 'docker_compose_language_service', 'dockerls', 'html', 'jdtls', 'lua_ls', 'omnisharp', 'rust_analyzer', 'ts_ls' },	-- servers for autocompletion
 	handlers = { default_setup }
 })
 
